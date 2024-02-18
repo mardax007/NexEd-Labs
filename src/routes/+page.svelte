@@ -13,19 +13,23 @@
         }[];
     }
 
+    function updateHeader() {
+        const header = document.getElementsByTagName("header")[0];
+        if (!header) return;
+
+        let headerBackgroundScroll = 0;
+        if (window.innerWidth > 1400) headerBackgroundScroll = 520;
+
+        if (window.scrollY > headerBackgroundScroll) {
+            header.style.backgroundColor = "#1b4584";
+        } else {
+            header.style.backgroundColor = "transparent";
+        }
+    }
+
     onMount(() => {
         addEventListener("scroll", () => {
-            const header = document.getElementsByTagName("header")[0];
-            if (!header) return;
-
-            let headerBackgroundScroll = 0;
-            if (window.innerWidth > 1400) headerBackgroundScroll = 520;
-
-            if (window.scrollY > headerBackgroundScroll) {
-                header.style.backgroundColor = "#1b4584";
-            } else {
-                header.style.backgroundColor = "transparent";
-            }
+            updateHeader()
         });
 
         const userLang = navigator.language;
@@ -73,7 +77,6 @@
     let selected = flags[0];
 
     function changeLanguage(flag: { name: string; value: string; icon: string; }) {
-        console.log(flag);
         selected = flag;
 
         const options = {
@@ -94,6 +97,7 @@
                 pageData = data;
                 finished = true;
                 document.body.style.filter = "none";
+                updateHeader();
             })
             .catch(err => console.error(err));
     }
@@ -219,10 +223,11 @@
         align-items: center;
         position: fixed;
         z-index: 1000;
-        transition: background-color 0.5s ease-in-out;
+        transition: background-color 0.25s ease-in-out;
         width: 100%;
         margin: 0 auto;
         min-width: 350px;
+        background-color: #1b4584;
 
         #logo {
             position: absolute;
