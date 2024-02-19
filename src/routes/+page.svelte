@@ -18,10 +18,7 @@
         const header = document.getElementsByTagName("header")[0];
         if (!header) return;
 
-        let headerBackgroundScroll = 0;
-        if (window.innerWidth > 1400) headerBackgroundScroll = 520;
-
-        if (window.scrollY > headerBackgroundScroll) {
+        if (window.scrollY > 100) {
             header.style.backgroundColor = "#1b4584";
         } else {
             header.style.backgroundColor = "transparent";
@@ -211,7 +208,6 @@
     }
 
     body {
-        height: 120vh;
         max-width: 1024px;
         margin: 0 auto;
         font-family: "Mukta", Sans-serif;
@@ -388,8 +384,8 @@
         display: flex;
         justify-content: space-between;
         color: #ffffff;
-        padding-top: 160px;
-        max-height: 450px;
+        padding-top: 200px;
+        max-height: 410px;
         background-image: linear-gradient(245deg, #02010100 43%, #1b4584 43.07%);
 
         #info {
@@ -410,7 +406,6 @@
                 font-size: 25px;
                 font-weight: 600;
                 margin: 0;
-                margin-bottom: 30px;
                 line-height: 1.2em;
                 font-family: "Mukta", Sans-serif;
             }
@@ -418,7 +413,7 @@
             p {
                 font-size: 1rem;
                 margin-bottom: 20px;
-                line-height: 29px;
+                line-height: 25px;
                 font-family: "Montserrat", Sans-serif
             }
 
@@ -431,7 +426,7 @@
                 border-radius: 50px;
                 font-weight: 400;
                 font-size: 1rem;
-                margin-top: 20px;
+                margin-top: 10px;
                 cursor: pointer;
                 transition: all 0.2s ease-in-out;
                 font-family: "Outfit", Sans-serif;
@@ -468,13 +463,17 @@
         }
 
         @media screen and (max-width: 900px) {
-            padding-top: 100px;
+            padding-top: 160px;
             max-height: none;
             background-image: linear-gradient(245deg, #1b4584 43%, #1b4584 43.07%);
 
             #info {
                 width: 100%;
                 padding-bottom: 0;
+            }
+
+            img {
+                display: none;
             }
 
             #filler {
@@ -485,17 +484,17 @@
     }
 
     #values {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+        display: grid;
+        width: calc(100% - 30px);
+        max-width: 1024px;
+        grid-template-columns: calc(35% + 30px) 65%;
 
         #info {
-            position: absolute;
-            width: 43%;
-            right: 0;
-            margin-top: 10%;
-            background-color: #ffffff;
+            background-color: #fff;
             padding: 30px;
+            position: relative;
+            top: 35%;
+            height: calc(65% - 59px);
 
             h2 {
                 color: #eb5e25;
@@ -514,37 +513,22 @@
         }
 
         img {
-            width: 75%;
-            height: 100%;
             object-fit: cover;
         }
 
-        @media screen and (max-width: 900px) {
-            flex-direction: column;
-            padding-bottom: 0;
-
-            span {
-                margin-bottom: 0;
-            }
+        @media screen and (max-width: 1200px) {
+            grid-template-columns: none;
+            grid-template-rows: 1fr 5fr;
+            width: calc(100% - 60px);
 
             #info {
-                left: 0;
+                top: 0%;
+                height: 100%;
                 width: calc(100% - 60px);
-                margin-bottom: 0;
             }
 
             img {
-                width: calc(100% + 60px);
-                overflow: hidden;
-                margin-top: -30px;
-                object-fit: cover;
-            }
-        }
-
-        @media screen and (max-width: 700px) {
-            #info {
-                position: relative;
-                margin-top: 0;
+                width: 100%;
             }
         }
     }
@@ -595,9 +579,10 @@
             .titleWrapper {
                 display: flex;
                 align-items: center;
+                background-color: #1c1c1c;
 
                 &:hover {
-                    background-color: #272727;
+                    background-color: #1c1c1c;
                 }
             }
 
