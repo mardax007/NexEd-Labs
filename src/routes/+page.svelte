@@ -106,12 +106,12 @@
 
     <div id="select-container">
         <ul>
-            <li tooltip={selected.name}>
+            <li>
                 <button><img src={selected.icon} alt={selected.name} /></button>
             </li>
             {#each flags as flag}
                 {#if selected.value !== flag.value}
-                    <li tooltip={flag.name}>
+                    <li>
                         <button on:click={() => {
                             changeLanguage(flag);
                         }}><img src={flag.icon} alt={flag.name} /></button>
@@ -235,7 +235,7 @@
 
         #select-container {
             position: absolute;
-            width: 66px;
+            width: 50px;
             height: 40px;
             background: #ffffff;
             top: 25px;
@@ -275,7 +275,7 @@
 
                         display: block;
                         left: 50%;
-                        transform: translate(-75%, -40%);
+                        transform: translate(-103%, -40%);
                         margin-bottom: 8px;
 
                         border-radius: 50%;
@@ -287,7 +287,7 @@
                         
                         &:hover {
                             box-shadow: 0px 5px 10px rgba(79, 104, 113, 0.3);
-                            transform: translate(-75%, -40%) scale(1.08);
+                            transform: translate(-103%, -40%) scale(1.08);
                         }
                     }
 
@@ -300,83 +300,6 @@
                     }
                 }
             }
-        }
-
-        [tooltip] {
-            position: relative;
-            font-weight: bold;
-        }
-
-        [tooltip]::before,
-        [tooltip]::after {
-            text-transform: none;
-            font-size: 12px;
-            line-height: 1;
-            user-select: none;
-            pointer-events: none;
-            position: absolute;
-            display: none;
-            opacity: 0;
-        }
-
-        [tooltip]::before {
-            content: "";
-            border: 5px solid transparent;
-            z-index: 1001;
-        }
-
-        [tooltip]::after {
-            content: attr(tooltip);
-
-            font-family: Helvetica, sans-serif;
-            text-align: center;
-
-            white-space: nowrap;
-            padding: 3px 0px;
-            border-radius: 0.3ch;
-            box-shadow: 0 1em 2em -0.5em rgba(0, 0, 0, 0.35);
-            background: #465663;
-            color: #fff;
-            z-index: 1000;
-        }
-
-        [tooltip]:hover::before,
-        [tooltip]:hover::after {
-            display: block;
-        }
-
-        [tooltip=""]::before,
-        [tooltip=""]::after {
-            display: none !important;
-        }
-
-        [tooltip]:not([flow])::before {
-            bottom: 50%;
-            border-bottom-width: 0;
-            border-top-color: #465663;
-        }
-
-        [tooltip]:not([flow])::after {
-            bottom: calc(50% + 5px);
-        }
-
-        [tooltip]:not([flow])::before,
-        [tooltip]:not([flow])::after {
-            left: -15.5px;
-            bottom: 40px;
-            transform: translate(-35%, -0.5em);
-        }
-
-        @keyframes tooltips-vert {
-            to {
-                opacity: 0.9;
-                transform: translate(-35%, 0);
-            }
-        }
-
-        [tooltip]:not([flow]):hover::before,
-        [tooltip]:not([flow]):hover::after {
-            animation: tooltips-vert 300ms ease-out forwards;
         }
     }
 
