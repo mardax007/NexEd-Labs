@@ -441,12 +441,13 @@
 
         @media screen and (max-width: 1200px) {
             grid-template-columns: none;
-            grid-template-rows: 1fr 5fr;
+            grid-template-rows: 1fr auto;
             width: calc(100% - 60px);
+            height: fit-content !important;
 
             #info {
                 top: 0%;
-                height: 100%;
+                height: fit-content !important;
                 width: calc(100% - 60px);
             }
 
