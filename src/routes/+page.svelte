@@ -232,7 +232,7 @@
 
         #logo {
             position: absolute;
-            left: 25px;
+            left: max(calc(50% + 30px - 512px), 30px);
             top: 25px;
             height: 40px;
         }
