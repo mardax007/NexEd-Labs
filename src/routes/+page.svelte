@@ -18,7 +18,7 @@
         const header = document.getElementsByTagName("header")[0];
         if (!header) return;
 
-        if (window.scrollY > 100) header.style.backgroundColor = "#1b4584";
+        if (window.scrollY > 0) header.style.backgroundColor = "#1b4584";
         else header.style.backgroundColor = "transparent";
     }
 
@@ -236,7 +236,7 @@
             height: 40px;
             background: #ffffff;
             top: 25px;
-            right: 0;
+            right: max(calc(50% - 55px - 512px), 5px);
             transform: translateX(-50%);
             border-radius: 10px;
             border: 0.5px solid rgba(202, 219, 226, 0.4);
@@ -380,14 +380,17 @@
             background-color: #1b4584;
         }
 
-        @media screen and (max-width: 1100px) {
-            padding-top: 160px;
+        @media screen and (max-width: 900px) {
+            padding-top: 120px;
             max-height: none;
             background-image: linear-gradient(245deg, #1b4584 43%, #1b4584 43.07%);
+            min-width: 300px;
+            height: auto !important;
 
             #info {
                 padding-top: 0;
                 width: 100%;
+                height: auto;
                 padding-bottom: 0;
             }
 
@@ -397,6 +400,7 @@
 
             #filler {
                 width: 100%;
+                height: 0;
             }
         }
     }
@@ -411,7 +415,7 @@
             background-color: #fff;
             padding: 30px;
             position: relative;
-            top: 35%;
+            top: 30%;
             height: calc(65% - 59px);
 
             h2 {
@@ -432,6 +436,7 @@
 
         img {
             object-fit: cover;
+            height: 90%;
         }
 
         @media screen and (max-width: 1200px) {
@@ -447,6 +452,7 @@
             }
 
             img {
+                height: 100%;
                 width: 100%;
             }
         }
