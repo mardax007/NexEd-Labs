@@ -18,11 +18,8 @@
         const header = document.getElementsByTagName("header")[0];
         if (!header) return;
 
-        if (window.scrollY > 100) {
-            header.style.backgroundColor = "#1b4584";
-        } else {
-            header.style.backgroundColor = "transparent";
-        }
+        if (window.scrollY > 100) header.style.backgroundColor = "#1b4584";
+        else header.style.backgroundColor = "transparent";
     }
 
     onMount(() => {
@@ -102,7 +99,7 @@
 </script>
 
 <header>
-    <img id="logo" src="./logo.svg" />
+    <img id="logo" src="./logo.svg" alt="NovoGrid" />
 
     <div id="select-container">
         <ul>
@@ -523,11 +520,14 @@
 
                 h3 {
                     font-size: 20px;
+                    line-height: 1.2em;
                     font-weight: 400;
                     margin: 0;
+                    margin-top: 5px;
                 }
 
                 p {
+                    margin-top: 5px;
                     font-size: 1rem;
                     line-height: 20px;
                     font-family: "Montserrat", Sans-serif;
@@ -536,11 +536,11 @@
 
             @media screen and (max-width: 900px) {
                 grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(3, 350px);
+                grid-template-rows: repeat(3, auto);
             }
 
-            @media screen and (max-width: 600px) {
-                grid-template-columns: repeat(1, 1fr);
+            @media screen and (max-width: 700px) {
+                grid-template-columns: 1fr;
                 grid-template-rows: repeat(6, auto);
             }
         }
