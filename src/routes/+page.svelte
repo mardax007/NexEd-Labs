@@ -388,8 +388,8 @@
         display: flex;
         justify-content: space-between;
         color: #ffffff;
-        padding-top: 180px;
-        max-height: 410px;
+        padding-top: 160px;
+        max-height: 450px;
         background-image: linear-gradient(245deg, #02010100 43%, #1b4584 43.07%);
 
         #info {
@@ -398,6 +398,7 @@
 
             h1 {
                 font-size: 35px;
+                width: 90%;
                 line-height: 1.2em;
                 margin: 0;
                 color: #eb5e25;
@@ -450,7 +451,7 @@
             top: 0;
             width: 60vw;
             height: 100%;
-            max-height: 620px;
+            max-height: 640px;
             z-index: -1;
             object-fit: cover;
         }
@@ -460,7 +461,7 @@
             left: 0;
             top: 0;
             height: 100%;
-            max-height: 620px;
+            max-height: 640px;
             width: 40vw;
             z-index: -1;
             background-color: #1b4584;
